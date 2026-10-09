@@ -7,147 +7,175 @@
 <meta name="description" content="모모마인드랩 오프라인 독서모임 9-10월 — 멈춤: 생각의 깊이를 더하는 시간. 사고외주, 문해력 격차, 고요한 읽기 3권과 함께합니다.">
 <style>
 :root{
-  --bg:#FFF6E0; --bg2:#FFFDF4; --ink:#2b2620; --muted:#6b6257;
-  --green:#3f6234; --green-d:#2f4c27; --peach:#F6C79F; --peach-d:#eeb086;
-  --card:#ffffff; --line:#e9dcbf; --yellow:#F5C518;
-  --radius:18px; --shadow:0 10px 30px rgba(63,98,52,.12);
+  /* Superr tokens */
+  --color-cream-paper:#fdfbf9;
+  --color-charcoal:#171717;
+  --color-cocoa-ink:#2b1a07;
+  --color-dew-drop:#f7efe9;
+  --color-marker-orange:#ff6f1e;
+  --color-burnt-sienna:#ce500a;
+  --color-sky-sticker:#3b82f6;
+  --color-bubblegum-sticker:#ff66cf;
+  --color-sprout-sticker:#22c55e;
+  --shadow-lg:rgba(0,0,0,.06) 0px 2px 20px 0px;
+  --shadow-subtle:rgba(0,0,0,.25) 0px 1px 2px 0px;
+  --radius-tags:20px; --radius-cards:12px; --radius-footer:56px; --radius-inputs:8px; --radius-buttons:20px;
+  --font-display:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --font-hand:"Segoe Print","Segoe Script","Nanum Brush Script","Apple SD Gothic Neo",cursive;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
-a{color:inherit}
+body{margin:0;font-family:var(--font-display);background:var(--color-cream-paper);color:var(--color-charcoal);line-height:1.6}
 img{max-width:100%;display:block}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-/* header */
-header{position:sticky;top:0;z-index:50;background:rgba(255,246,224,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:14px;padding:12px 0}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
-.logo img{width:40px;height:40px;border-radius:12px;background:#fff;border:1px solid var(--line)}
-.logo b{font-size:17px;letter-spacing:-.3px}
-.logo small{display:block;font-size:11px;color:var(--muted);font-weight:600;line-height:1.2}
-.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
-.nav-links a{text-decoration:none;font-size:14px;font-weight:700;padding:8px 12px;border-radius:999px}
-.nav-links a:hover{background:#fff}
-.nav-cta{background:var(--green)!important;color:#fff!important}
-@media(max-width:760px){.nav-links{display:none}}
-/* hero */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,28,18,.15),rgba(20,28,18,.72))}
-.hero-inner{position:relative;padding:84px 0 56px;color:#fff}
-.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px}
-.hero h1{font-size:clamp(32px,6vw,58px);line-height:1.12;margin:18px 0 10px;letter-spacing:-1.5px;text-shadow:0 3px 18px rgba(0,0,0,.35)}
-.hero h1 span{color:#FFE9A8}
-.hero p.sub{font-size:clamp(15px,2.4vw,19px);opacity:.95;margin:0 0 22px;max-width:640px}
-.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 24px}
-.hero-meta div{background:rgba(255,255,255,.96);color:var(--ink);border-radius:14px;padding:10px 14px;font-size:14px;font-weight:700}
-.hero-meta div small{display:block;font-size:12px;color:var(--muted);font-weight:700}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-block;text-decoration:none;font-weight:800;padding:13px 20px;border-radius:14px;border:2px solid transparent;cursor:pointer;font-size:15px}
-.btn-green{background:var(--green);color:#fff}
-.btn-green:hover{background:var(--green-d)}
-.btn-white{background:#fff;color:var(--ink)}
-.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
-/* sections */
-section{padding:56px 0}
-.sec-head{margin-bottom:22px}
-.kicker{font-size:13px;font-weight:800;color:var(--green);letter-spacing:1px}
-.sec-head h2{font-size:clamp(24px,4vw,34px);margin:6px 0 8px;letter-spacing:-.8px;line-height:1.25}
-.sec-head p{margin:0;color:var(--muted)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-/* books */
-.books{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:820px){.books{grid-template-columns:1fr}}
-.book{overflow:hidden;display:flex;flex-direction:column}
-.book-cover{aspect-ratio:3/3.6;overflow:hidden;background:#f4ecd6}
-.book-cover img{width:100%;height:100%;object-fit:cover;object-position:top}
-.book-body{padding:18px}
-.week{display:inline-block;font-size:12px;font-weight:800;background:#FFF0D6;border:1px solid var(--line);color:#7a5a1f;padding:4px 10px;border-radius:999px;margin-bottom:10px}
-.book-body h3{margin:0 0 4px;font-size:20px;letter-spacing:-.5px}
-.book-body .author{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:10px}
-.book-body .desc{font-size:14.5px;font-weight:700;background:#FDEBD2;border-radius:12px;padding:10px 12px;margin:0 0 10px}
-.book-body .long{font-size:14px;color:#4d463c;margin:0}
-/* schedule */
-.sched{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:820px){.sched{grid-template-columns:1fr}}
-.team{padding:0;overflow:hidden}
-.team-top{padding:18px 20px;color:#fff}
-.team-top.am{background:var(--green)}
-.team-top.pm{background:#8a6d1c}
-.team-top h3{margin:0;font-size:19px}
-.team-top p{margin:4px 0 0;opacity:.92;font-size:14px}
-.team-body{padding:18px 20px}
-.team-body ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
-.team-body li{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
-.team-body li b{display:inline-block;min-width:52px}
-.place{margin-top:16px;padding:18px 20px}
-.place h3{margin:0 0 10px}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+/* ---- header: 32px mark left, pill CTA right, nothing between ---- */
+header{position:sticky;top:0;z-index:50;background:rgba(253,251,249,.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--color-charcoal)}
+.nav{display:flex;align-items:center;gap:12px;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-left:4px}
+.brand img{width:32px;height:32px;border-radius:8px;border:1px solid var(--color-charcoal);background:#fff}
+.brand b{font-size:16px;font-weight:600}
+.brand small{display:block;font-size:12px;font-weight:400;opacity:.7}
+.pill{display:inline-block;text-decoration:none;background:var(--color-cream-paper);border:1.5px solid var(--color-charcoal);border-radius:var(--radius-buttons);padding:10px 28px;font-size:16px;font-weight:500;color:var(--color-charcoal);box-shadow:var(--shadow-subtle);cursor:pointer;font-family:inherit}
+.pill:hover{background:var(--color-dew-drop)}
+.nav-links{display:flex;gap:4px;margin:0 auto}
+.nav-links a{text-decoration:none;font-size:15px;font-weight:500;padding:8px 12px;border-radius:var(--radius-tags)}
+.nav-links a:hover{background:var(--color-dew-drop)}
+@media(max-width:900px){.nav-links{display:none}}
+/* ---- hero: two-column split ---- */
+.hero{border-bottom:1.5px solid var(--color-charcoal)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:64px 0}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;padding:40px 0}}
+.hand{font-family:var(--font-hand);color:var(--color-marker-orange);font-size:24px;margin:0 0 4px;transform:rotate(-2deg);display:inline-block}
+.hero h1{font-size:clamp(40px,6vw,72px);line-height:1.12;font-weight:600;color:var(--color-cocoa-ink);margin:0 0 16px;letter-spacing:-.5px}
+.hero h1 .hl{color:var(--color-marker-orange);text-decoration:underline wavy;text-decoration-thickness:3px;text-underline-offset:8px}
+.hero .body{font-size:20px;line-height:1.5;color:var(--color-cocoa-ink);margin:0 0 20px;max-width:34ch}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.tag{border:1.5px solid var(--color-charcoal);border-radius:var(--radius-tags);padding:8px 16px;font-size:16px;font-weight:500;background:var(--color-cream-paper)}
+.tag small{display:block;font-size:13px;font-weight:400;opacity:.7}
+.tag.hot{background:var(--color-dew-drop)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.preorder{font-size:16px;color:var(--color-cocoa-ink);margin:12px 0 0}
+/* hero photo: tilted product shot + sticker label + stickers */
+.photo-wrap{position:relative}
+.photo-tilt{transform:rotate(6deg);border:1.5px solid var(--color-charcoal);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--color-dew-drop)}
+.photo-tilt img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3.4}
+.name-label{position:absolute;left:-14px;bottom:26px;background:#fff;border:1px solid var(--color-charcoal);border-radius:8px;padding:10px 14px;font-size:15px;transform:rotate(-4deg);box-shadow:var(--shadow-subtle)}
+.name-label b{font-family:var(--font-hand);font-weight:400;font-size:18px;display:block}
+.sticker{position:absolute;filter:drop-shadow(0 1px 0 rgba(0,0,0,.2))}
+/* ---- sections ---- */
+section{padding:64px 0}
+.sec-head{margin-bottom:28px;max-width:720px}
+.kicker{font-family:var(--font-hand);color:var(--color-marker-orange);font-size:20px;margin:0}
+.sec-head h2{font-size:clamp(28px,4vw,46px);line-height:1.2;font-weight:600;color:var(--color-cocoa-ink);margin:4px 0 10px}
+.sec-head p{font-size:18px;margin:0;opacity:.85}
+.card{background:var(--color-cream-paper);border:1.5px solid var(--color-charcoal);border-radius:var(--radius-cards);box-shadow:var(--shadow-lg)}
+/* ---- books showcase ---- */
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.books{grid-template-columns:1fr}}
+.book{overflow:hidden;position:relative}
+.book .cap{font-family:var(--font-hand);color:var(--color-marker-orange);font-size:20px;margin:0;padding:16px 20px 0;transform:rotate(-1.5deg);display:inline-block}
+.book-cover{margin:12px 20px 0;border:1.5px solid var(--color-charcoal);border-radius:8px;overflow:hidden;background:var(--color-dew-drop)}
+.book:nth-child(2) .book-cover{transform:rotate(1.5deg)}
+.book:nth-child(3) .book-cover{transform:rotate(-1.5deg)}
+.book-cover img{width:100%;aspect-ratio:3/3.4;object-fit:cover;object-position:top}
+.book-body{padding:20px 20px 24px}
+.week{display:inline-block;font-size:14px;font-weight:600;border:1.5px solid var(--color-charcoal);border-radius:var(--radius-tags);padding:4px 14px;margin-bottom:10px;background:var(--color-dew-drop)}
+.book-body h3{margin:0 0 2px;font-size:24px;font-weight:600;color:var(--color-cocoa-ink)}
+.book-body .author{font-size:15px;opacity:.7;margin-bottom:12px}
+.book-body .desc{font-size:17px;font-weight:600;margin:0 0 10px}
+.book-body .desc em{font-style:normal;color:var(--color-marker-orange);text-decoration:underline wavy;text-decoration-thickness:2px;text-underline-offset:4px}
+.book-body .long{font-size:16px;margin:0;opacity:.9}
+/* ---- schedule ---- */
+.sched{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.sched{grid-template-columns:1fr}}
+.team{overflow:hidden}
+.team-top{padding:20px 24px;border-bottom:1.5px solid var(--color-charcoal);background:var(--color-dew-drop)}
+.team-top h3{margin:0;font-size:22px;font-weight:600;color:var(--color-cocoa-ink)}
+.team-top p{margin:4px 0 0;font-size:16px}
+.team-top p b{color:var(--color-marker-orange)}
+.team-body{padding:20px 24px}
+.team-body ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.team-body li{border:1.5px solid var(--color-charcoal);border-radius:var(--radius-tags);padding:10px 16px;font-size:16px;background:var(--color-cream-paper)}
+.team-body li b{display:inline-block;min-width:44px;color:var(--color-burnt-sienna)}
+.place{margin-top:24px;padding:24px}
+.place h3{margin:0 0 12px;font-size:22px;color:var(--color-cocoa-ink)}
 .place-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:640px){.place-grid{grid-template-columns:1fr}}
-.place-grid div{background:var(--bg2);border:1px dashed var(--peach-d);border-radius:12px;padding:12px;font-size:14px}
-/* operator */
-.op{display:grid;grid-template-columns:280px 1fr;gap:0;overflow:hidden}
-@media(max-width:760px){.op{grid-template-columns:1fr}}
-.op-photo{background:linear-gradient(135deg,var(--green),#6a8f5c);color:#fff;padding:28px 24px;display:flex;flex-direction:column;justify-content:center}
-.op-photo .name{font-size:28px;font-weight:900;margin:0}
-.op-photo .role{font-size:14px;opacity:.9;margin:6px 0 14px}
-.op-photo .tags{display:flex;gap:6px;flex-wrap:wrap}
-.op-photo .tags span{font-size:12px;font-weight:800;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);padding:4px 10px;border-radius:999px}
-.op-body{padding:24px}
-.op-body dl{margin:0;display:grid;gap:10px;font-size:15px}
-.op-body dt{font-weight:800;color:var(--green)}
-.op-body dd{margin:0}
-/* about */
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
-@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
-.about-main{padding:26px}
-.about-main p{font-size:17px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
-.stats div{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
-.stats b{font-size:26px;display:block;color:var(--green)}
-.stats span{font-size:13px;color:var(--muted);font-weight:700}
-.poster-box{padding:14px}
-.poster-box img{border-radius:12px;border:1px solid var(--line)}
-.poster-box p{font-size:13px;color:var(--muted);text-align:center;margin:10px 0 4px}
-/* history */
-.hist-tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.hist-tabs button{border:1px solid var(--line);background:#fff;padding:10px 16px;border-radius:999px;font-weight:800;cursor:pointer;font-size:14px}
-.hist-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.place-grid div{background:var(--color-dew-drop);border:1.5px dashed var(--color-charcoal);border-radius:var(--radius-cards);padding:14px;font-size:16px}
+.note{font-size:14px;opacity:.7}
+/* ---- operator ---- */
+.op{display:grid;grid-template-columns:300px 1fr;overflow:hidden}
+@media(max-width:800px){.op{grid-template-columns:1fr}}
+.op-photo{background:var(--color-dew-drop);border-right:1.5px solid var(--color-charcoal);padding:32px 28px;position:relative}
+@media(max-width:800px){.op-photo{border-right:0;border-bottom:1.5px solid var(--color-charcoal)}}
+.op-photo .name{font-size:36px;font-weight:600;color:var(--color-cocoa-ink);margin:0;line-height:1.2}
+.op-photo .role{font-size:16px;margin:6px 0 14px}
+.op-photo .tags{display:flex;gap:8px;flex-wrap:wrap}
+.op-photo .tags span{font-size:14px;border:1.5px solid var(--color-charcoal);border-radius:var(--radius-tags);padding:4px 12px;background:var(--color-cream-paper)}
+.op-body{padding:28px}
+.op-body dl{margin:0;display:grid;gap:14px;font-size:17px}
+.op-body dt{font-weight:600;color:var(--color-burnt-sienna);font-size:15px}
+.op-body dd{margin:2px 0 0}
+/* ---- about ---- */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+.about-main{padding:32px}
+.about-main p{font-size:19px;margin:0 0 14px}
+.about-main p.small{font-size:16px;opacity:.85}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.stats div{background:var(--color-dew-drop);border:1.5px solid var(--color-charcoal);border-radius:var(--radius-cards);padding:14px;text-align:center}
+.stats b{font-size:30px;display:block;color:var(--color-cocoa-ink)}
+.stats span{font-size:14px}
+.poster-box{padding:20px;transform:rotate(1.5deg)}
+.poster-box img{border-radius:8px;border:1.5px solid var(--color-charcoal)}
+.poster-box p{font-size:14px;opacity:.7;text-align:center;margin:10px 0 0}
+/* ---- history ---- */
+.hist-tabs{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.hist-tabs button{border:1.5px solid var(--color-charcoal);background:var(--color-cream-paper);padding:10px 22px;border-radius:var(--radius-tags);font-weight:600;cursor:pointer;font-size:15px;font-family:inherit;color:var(--color-charcoal);box-shadow:var(--shadow-subtle)}
+.hist-tabs button.active{background:var(--color-charcoal);color:var(--color-cream-paper)}
 .timeline{display:grid;gap:12px}
 .timeline[hidden]{display:none}
-.phase{padding:18px 20px}
-.phase h4{margin:0 0 6px;font-size:17px}
-.phase h4 em{font-style:normal;font-size:12px;background:var(--green);color:#fff;padding:3px 9px;border-radius:999px;margin-right:8px;vertical-align:middle}
-.phase ul{margin:8px 0 0;padding-left:18px;font-size:14.5px}
-.phase li{margin:3px 0}
-/* apply */
-.apply{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:860px){.apply{grid-template-columns:1fr}}
-.form{padding:24px}
-.form label{display:block;font-size:13px;font-weight:800;margin:12px 0 6px}
-.form input,.form select,.form textarea{width:100%;padding:12px 13px;border-radius:12px;border:1.5px solid var(--line);font-size:15px;font-family:inherit;background:var(--bg2)}
-.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
-.checks{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
-.checks label{margin:0;font-weight:700;background:#fff;border:1.5px solid var(--line);padding:8px 12px;border-radius:999px;cursor:pointer;font-size:14px}
-.checks input{width:auto}
-.note{font-size:13px;color:var(--muted)}
-.apply-side{padding:24px;background:var(--green);color:#fff;border:1px solid var(--green-d)}
-.apply-side h3{margin-top:0}
-.apply-side ol{padding-left:20px}
+.phase{padding:20px 24px}
+.phase h4{margin:0 0 6px;font-size:19px;font-weight:600;color:var(--color-cocoa-ink)}
+.phase h4 em{font-style:normal;font-size:13px;font-weight:600;background:var(--color-dew-drop);border:1.5px solid var(--color-charcoal);border-radius:var(--radius-tags);color:var(--color-charcoal);padding:3px 12px;margin-right:8px;vertical-align:middle}
+.phase h4 .now{color:var(--color-marker-orange)}
+.phase ul{margin:8px 0 0;padding-left:20px;font-size:16px}
+/* ---- apply ---- */
+.apply{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+@media(max-width:900px){.apply{grid-template-columns:1fr}}
+.form{padding:28px}
+.form label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
+.form input,.form textarea{width:100%;padding:12px 14px;border-radius:var(--radius-inputs);border:1.5px solid var(--color-charcoal);font-size:16px;font-family:inherit;background:#fff;color:var(--color-charcoal)}
+.form input:focus,.form textarea:focus{outline:2px solid var(--color-sprout-sticker);outline-offset:1px}
+.checks{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.checks label{margin:0;font-weight:500;background:#fff;border:1.5px solid var(--color-charcoal);padding:8px 16px;border-radius:var(--radius-tags);cursor:pointer;font-size:15px}
+.checks input{width:auto;accent-color:var(--color-marker-orange)}
+.apply-side{padding:28px;background:var(--color-dew-drop)}
+.apply-side h3{margin:0 0 8px;font-size:20px;color:var(--color-cocoa-ink)}
+.apply-side ol{padding-left:22px;margin:0 0 18px;font-size:16px}
 .apply-side li{margin:8px 0}
-.to-top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:20px;cursor:pointer;box-shadow:var(--shadow)}
+.apply-side .say{background:var(--color-cream-paper);border:1.5px solid var(--color-charcoal);border-radius:var(--radius-cards);padding:14px;font-size:16px;margin:0}
+.apply-side .say b{color:var(--color-marker-orange)}
+/* ---- footer brand band ---- */
+.brand-band{background:var(--color-marker-orange);border-radius:var(--radius-footer) var(--radius-footer) 0 0;margin-top:64px;color:var(--color-charcoal)}
+.brand-band .wrap{padding-top:36px;padding-bottom:36px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.brand-band b{font-size:22px;font-weight:600}
+.brand-band .contact{font-size:16px;font-weight:500}
+.brand-band a{font-weight:600}
+.to-top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--color-charcoal);background:var(--color-cream-paper);font-size:20px;cursor:pointer;box-shadow:var(--shadow-subtle);color:var(--color-charcoal)}
 .reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
 .reveal.on{opacity:1;transform:none}
+.curve{display:block;width:120px;height:14px;margin-top:2px}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top">
+    <a class="brand" href="#top">
       <img src="assets/logo.png" alt="모모마인드랩 로고" onerror="this.style.display='none'">
-      <span><b>모모마인드랩</b><small>MOMO MIND LAB · 오프라인 독서모임</small></span>
+      <span><b>모모마인드랩</b><small>momo mind lab · 오프라인 독서모임</small></span>
     </a>
     <nav class="nav-links">
       <a href="#books">읽을 책</a>
@@ -155,26 +183,34 @@ section{padding:56px 0}
       <a href="#operator">운영자</a>
       <a href="#history">38권의 여정</a>
       <a href="#poster">포스터</a>
-      <a class="nav-cta" href="#apply">참가 신청</a>
     </nav>
+    <a class="pill" href="#apply" style="margin-left:auto">참가 신청</a>
   </div>
 </header>
 
 <div class="hero" id="top">
-  <div class="hero-bg"><img src="assets/hero.jpg" alt="멈춤 콘셉트 이미지"></div>
-  <div class="wrap hero-inner">
-    <span class="badge">📖 모모마인드랩 독서모임 (오프라인) · 2026년 9–10월</span>
-    <h1>멈춤: <span>생각의 깊이를<br>더하는 시간</span></h1>
-    <p class="sub">2024년 11월부터 함께 읽고, 말하고, 들으며 생각하는 기쁨을 일상으로 만들어 온 모임. 이번 시즌엔 AI 시대의 생각, 문해력, 고요한 읽기를 다룹니다.</p>
-    <div class="hero-meta">
-      <div><small>오전팀 · 목 11:00</small>9/10 · 10/1 · 10/15 (총 3회)</div>
-      <div><small>오후팀 · 목 15:00</small>9/17 · 10/8 · 10/22 (총 3회)</div>
-      <div><small>장소</small>의왕 인덕원 · 의왕 더 클래식</div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hand">dear readers, 멈춤이 필요한 당신에게 —</span>
+      <h1>멈춤: 생각의 깊이를 <span class="hl">더하는 시간</span></h1>
+      <p class="body">2024년 11월부터 함께 읽고, 말하고, 들으며 생각하는 기쁨을 일상으로 만들어 온 모임. 이번 시즌엔 AI 시대의 생각, 문해력, 고요한 읽기를 다룹니다.</p>
+      <div class="hero-meta">
+        <div class="tag hot"><small>오전팀 · 목 11:00</small>9/10 · 10/1 · 10/15 (총 3회)</div>
+        <div class="tag"><small>오후팀 · 목 15:00</small>9/17 · 10/8 · 10/22 (총 3회)</div>
+        <div class="tag"><small>장소</small>의왕 인덕원 · 의왕 더 클래식</div>
+      </div>
+      <div class="hero-cta">
+        <a class="pill" href="#apply">참가 신청하기</a>
+        <a class="pill" href="#books">3권의 책 보기</a>
+      </div>
+      <p class="preorder">📖 모모마인드랩 독서모임 (오프라인) · 2026년 9–10월</p>
     </div>
-    <div class="hero-btns">
-      <a class="btn btn-green" href="#apply">참가 신청하기</a>
-      <a class="btn btn-white" href="#books">3권의 책 보기</a>
-      <a class="btn btn-ghost" href="#schedule">일정 확인</a>
+    <div class="photo-wrap">
+      <svg class="sticker" style="top:-24px;right:8%;width:56px;transform:rotate(12deg)" viewBox="0 0 64 64"><path d="M36 4 12 38h14L26 60 52 24H36l6-14z" fill="#3b82f6" stroke="#171717" stroke-width="3" stroke-linejoin="round"/></svg>
+      <svg class="sticker" style="bottom:-18px;right:-8px;width:60px;transform:rotate(-10deg)" viewBox="0 0 64 64"><path d="M32 56S10 40 10 24c0-8 6-13 13-13 5 0 9 3 9 3s4-3 9-3c7 0 13 5 13 13 0 16-22 32-22 32z" fill="#ff6f1e" stroke="#171717" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="26" r="2.5" fill="#171717"/><circle cx="40" cy="26" r="2.5" fill="#171717"/></svg>
+      <svg class="sticker" style="top:38%;left:-26px;width:44px;transform:rotate(8deg)" viewBox="0 0 48 48"><path d="M24 4l3.5 9.5L37 17l-9.5 3.5L24 30l-3.5-9.5L11 17l9.5-3.5z" fill="#22c55e" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/><path d="M38 32l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#22c55e" stroke="#171717" stroke-width="2" stroke-linejoin="round"/></svg>
+      <div class="photo-tilt"><img src="assets/hero.jpg" alt="멈춤 콘셉트 이미지"></div>
+      <div class="name-label"><b>momo mind lab</b>9–10월 · 목요일 3회 · 의왕</div>
     </div>
   </div>
 </div>
@@ -183,38 +219,41 @@ section{padding:56px 0}
 
   <section id="books">
     <div class="sec-head reveal">
-      <div class="kicker">READING LIST</div>
+      <p class="kicker">this season's picks!</p>
       <h2>읽을 책 및 소개</h2>
       <p>세 번의 목요일, 세 권의 책. 빠르게 훑는 읽기가 아니라, 멈춰서 깊이 읽는 시간입니다.</p>
     </div>
     <div class="books">
       <article class="card book reveal">
+        <p class="cap">week 1 pick ↓</p>
         <div class="book-cover"><img src="assets/book-sago.jpg" alt="사고외주 책 표지"></div>
         <div class="book-body">
           <span class="week">☞ 1주차</span>
           <h3>&lt;사고외주&gt;</h3>
           <div class="author">홍진기 · 생각하지 않는 인간의 출현</div>
-          <p class="desc">똑똑한 무능함,<br>AI시대 조용하고 위험한 변화</p>
+          <p class="desc"><em>똑똑한 무능함,</em><br>AI시대 조용하고 위험한 변화</p>
           <p class="long">“우리는 지금 ‘똑똑한 무능함’에 빠져 있다.” 연세대 홍진기 교수가 묻습니다. AI에게 생각을 외주 맡긴 시대, 우리의 판단과 사유는 어디로 가는가. 시즌의 문을 여는 문제작입니다.</p>
         </div>
       </article>
       <article class="card book reveal">
+        <p class="cap">week 2 pick ↓</p>
         <div class="book-cover"><img src="assets/book-munhae.jpg" alt="문해력 격차 책 표지"></div>
         <div class="book-body">
           <span class="week">☞ 2주차</span>
           <h3>&lt;문해력 격차&gt;</h3>
           <div class="author">김지원 · 민정홍 (EBS PD)</div>
-          <p class="desc">EBS PD가 파헤친 문해력 격차.<br>왜 누구는 읽고, 누구는 읽지 못하는가</p>
+          <p class="desc">EBS PD가 파헤친 <em>문해력 격차.</em><br>왜 누구는 읽고, 누구는 읽지 못하는가</p>
           <p class="long">읽기 힘든 아이는 어떻게 읽기 못하는 어른이 되는가. 7년의 취재와 현장 프로젝트, 수백 권의 논문으로 파헤친 ‘읽기의 격차’와 그 해법. 우리 모두의 이야기입니다.</p>
         </div>
       </article>
       <article class="card book reveal">
+        <p class="cap">week 3 pick ↓</p>
         <div class="book-cover"><img src="assets/book-goyo.jpg" alt="고요한 읽기 책 표지"></div>
         <div class="book-body">
           <span class="week">☞ 3주차</span>
           <h3>&lt;고요한 읽기&gt;</h3>
           <div class="author">이승우 · 읽기-쓰기-살기의 초상</div>
-          <p class="desc">고요히 읽는다는 것,<br>자기침잠과 사유의 힘</p>
+          <p class="desc"><em>고요히 읽는다는 것,</em><br>자기침잠과 사유의 힘</p>
           <p class="long">“그 때 우리 안에서 일어나는 일이 바로 ‘흩어져 있는 것을 한데 모으기’, 즉 생각하기다.” 읽기-쓰기-살기가 빚어낸 작가의 초상. 시즌을 가장 깊이 있게 닫는 책입니다.</p>
         </div>
       </article>
@@ -223,13 +262,13 @@ section{padding:56px 0}
 
   <section id="schedule">
     <div class="sec-head reveal">
-      <div class="kicker">SCHEDULE & PLACE</div>
+      <p class="kicker">save your thursdays!</p>
       <h2>일정 안내 및 장소</h2>
       <p>2026년 9–10월, 지정된 목요일 3회 · 오전 / 오후 중 선택. 두 팀 내용은 동일합니다.</p>
     </div>
     <div class="sched">
       <div class="card team reveal">
-        <div class="team-top am"><h3>☀️ 오전팀 (목요일 오전 11시)</h3><p>총 3회 · 9/10, 10/1, 10/15</p></div>
+        <div class="team-top"><h3>☀️ 오전팀 (목요일 오전 11시)</h3><p>총 3회 · <b>9/10, 10/1, 10/15</b></p></div>
         <div class="team-body">
           <ul>
             <li><b>1회</b> 9/10 (목) 11:00 — &lt;사고외주&gt;</li>
@@ -239,7 +278,7 @@ section{padding:56px 0}
         </div>
       </div>
       <div class="card team reveal">
-        <div class="team-top pm"><h3>🌙 오후팀 (목요일 오후 3시)</h3><p>총 3회 · 9/17, 10/8, 10/22</p></div>
+        <div class="team-top"><h3>🌙 오후팀 (목요일 오후 3시)</h3><p>총 3회 · <b>9/17, 10/8, 10/22</b></p></div>
         <div class="team-body">
           <ul>
             <li><b>1회</b> 9/17 (목) 15:00 — &lt;사고외주&gt;</li>
@@ -249,7 +288,7 @@ section{padding:56px 0}
         </div>
       </div>
     </div>
-    <div class="card place reveal" style="margin-top:16px">
+    <div class="card place reveal" style="margin-top:24px">
       <h3>📍 모임 장소</h3>
       <div class="place-grid">
         <div><b>오전팀</b><br>의왕 인덕원 센트럴자이 2단지<br>자이안센터 커뮤니티룸</div>
@@ -261,11 +300,12 @@ section{padding:56px 0}
 
   <section id="operator">
     <div class="sec-head reveal">
-      <div class="kicker">OPERATOR</div>
+      <p class="kicker">say hi!</p>
       <h2>운영자 소개</h2>
     </div>
     <div class="card op reveal">
       <div class="op-photo">
+        <svg style="width:52px;transform:rotate(-8deg);margin-bottom:12px" viewBox="0 0 64 64"><circle cx="28" cy="26" r="16" fill="#fdfbf9" stroke="#171717" stroke-width="3"/><circle cx="22" cy="24" r="2.5" fill="#171717"/><circle cx="34" cy="24" r="2.5" fill="#171717"/><path d="M22 32c3 3 9 3 12 0" stroke="#171717" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M40 36c6-2 10-6 12-12-6 1-11 5-13 11z" fill="#ff66cf" stroke="#171717" stroke-width="2.5" stroke-linejoin="round"/></svg>
         <p class="name">김수미</p>
         <p class="role">모모마인드랩 독서모임 운영자</p>
         <div class="tags"><span>연세대 영문과 졸업</span><span>독서교육 전공</span></div>
@@ -283,14 +323,14 @@ section{padding:56px 0}
 
   <section id="about">
     <div class="sec-head reveal">
-      <div class="kicker">ABOUT MOMO MIND LAB</div>
+      <p class="kicker">since nov 2024!</p>
       <h2>모모마인드랩 독서모임 소개</h2>
       <p>2024년 11월부터 설레는 마음으로 이어온 성장독서의 기록.</p>
     </div>
     <div class="about-grid">
       <div class="card about-main reveal">
         <p><b>모모마인드랩 독서모임은 2024년 11월부터 설레는 마음으로 함께 책을 읽고, 말하고 들으며 생각하는 기쁨이 일상이 되기를 꿈꾸는 모임입니다.</b></p>
-        <p style="font-size:15px;color:#4d463c">소설에서 나를 찾고, 죽음·고통·가족·일상의 주제를 지나 ‘멈춤’에 도착했습니다. 혼자라면 덮었을 책도 함께라면 끝까지 읽게 됩니다. 발제와 대화, 여운이 남는 2시간을 경험해 보세요.</p>
+        <p class="small">소설에서 나를 찾고, 죽음·고통·가족·일상의 주제를 지나 ‘멈춤’에 도착했습니다. 혼자라면 덮었을 책도 함께라면 끝까지 읽게 됩니다. 발제와 대화, 여운이 남는 2시간을 경험해 보세요.</p>
         <div class="stats">
           <div><b>12</b><span>주제 (2024.11–2026.10)</span></div>
           <div><b>38</b><span>함께 읽은 책</span></div>
@@ -306,7 +346,7 @@ section{padding:56px 0}
 
   <section id="history">
     <div class="sec-head reveal">
-      <div class="kicker">ARCHIVE · 2024.11 — 2026.10</div>
+      <p class="kicker">38 books and counting!</p>
       <h2>함께하는 6단계 성장독서, 38권의 여정</h2>
       <p>버튼을 눌러 시즌 I · II를 전환해 보세요.</p>
     </div>
@@ -328,13 +368,13 @@ section{padding:56px 0}
       <div class="card phase"><h4><em>3단계</em>우리는 왜 고통을 겪는가 (3–4월)</h4><ul><li>&lt;고통의 문제&gt;</li></ul></div>
       <div class="card phase"><h4><em>4단계</em>샌드위치 세대의 숨고르기 — 내 인생의 오후를 위한 여정 (5–6월)</h4><ul><li>&lt;한낮의 시선&gt; · &lt;가족이지만 타인입니다&gt; · &lt;내가 죽어 누워있을 때&gt; · &lt;별 것 아닌 것 같지만 도움이 되는&gt;</li></ul></div>
       <div class="card phase"><h4><em>5단계</em>사는 게 내 맘 같지 않을 때 (7–8월)</h4><ul><li>&lt;체호프 단편선&gt;</li></ul></div>
-      <div class="card phase"><h4><em>6단계</em>멈춤 _ 생각의 깊이를 더하는 시간 (9–10월) ★ 이번 시즌</h4><ul><li>&lt;사고외주&gt; · &lt;문해력 격차&gt; · &lt;고요한 읽기&gt;</li></ul></div>
+      <div class="card phase"><h4><em>6단계</em>멈춤 _ 생각의 깊이를 더하는 시간 (9–10월) <span class="now">★ 이번 시즌</span></h4><ul><li>&lt;사고외주&gt; · &lt;문해력 격차&gt; · &lt;고요한 읽기&gt;</li></ul></div>
     </div>
   </section>
 
   <section id="apply">
     <div class="sec-head reveal">
-      <div class="kicker">JOIN US</div>
+      <p class="kicker">grab your seat!</p>
       <h2>참가 신청</h2>
       <p>아래 빈 칸에 보이시는 곳에 이름, 연락처, 희망팀 선택, 남기실 말씀을 입력 하신 후에 '신청내용복사하기' 버튼을 누르시면 입력 내용이 복사됩니다. 그리고 운영자 이메일이나 혹은 카카오톡으로 붙여넣기 해서 내용을 보내 주시면 됩니다.</p>
     </div>
@@ -351,9 +391,9 @@ section{padding:56px 0}
         </div>
         <label for="f-msg">남기실 말씀</label>
         <textarea id="f-msg" rows="4" placeholder="처음 참여하시나요? 궁금한 점을 적어주세요."></textarea>
-        <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
-          <button class="btn btn-green" id="btnCopy" type="button">신청내용복사하기</button>
-          <button class="btn btn-white" id="btnPrint" type="button" style="border-color:var(--line)">포스터와 함께 인쇄</button>
+        <div style="display:flex;gap:12px;margin-top:18px;flex-wrap:wrap">
+          <button class="pill" id="btnCopy" type="button">신청내용복사하기</button>
+          <button class="pill" id="btnPrint" type="button">포스터와 함께 인쇄</button>
         </div>
         <p class="note" id="formMsg" style="margin:10px 0 0"></p>
         <p class="note">※ 이 페이지는 정적 홍보 페이지입니다. 제출된 정보는 서버로 전송되지 않습니다.</p>
@@ -365,18 +405,25 @@ section{padding:56px 0}
           <li>운영자 이메일(smkyullin@gmail.com)이나 카카오톡(ID: SumeeKim)으로 붙여넣기 해서 보내주세요.</li>
           <li>장소 안내와 준비물(책·필기구)을 안내받으세요.</li>
         </ol>
-        <h3 style="margin-top:18px">💬 이런 방식으로 진행해요</h3>
+        <h3>💬 이런 방식으로 진행해요</h3>
         <ol>
           <li>사전 읽기 (완독이 아니어도 괜찮아요)</li>
           <li>발제와 질문 나누기 (60분)</li>
           <li>깊이 있는 대화 + 한 줄 나눔 (60분)</li>
         </ol>
-        <p style="background:rgba(255,255,255,.15);border-radius:12px;padding:12px;font-size:14px">“멈춤은 뒤처짐이 아니라, 더 깊이 가기 위한 시간입니다.”<br>지금, 목요일 오전/오후 한 자리를 잡아보세요.</p>
+        <p class="say">“멈춤은 뒤처짐이 아니라, <b>더 깊이 가기 위한 시간</b>입니다.”<br>지금, 목요일 오전/오후 한 자리를 잡아보세요.</p>
       </div>
     </div>
   </section>
 
 </main>
+
+<div class="brand-band">
+  <div class="wrap">
+    <div><b>목요일에 만나요! 📚</b><br>모모마인드랩 독서모임 · 멈춤: 생각의 깊이를 더하는 시간 (2026.9–10)</div>
+    <div class="contact">✉️ <a href="mailto:smkyullin@gmail.com">smkyullin@gmail.com</a> · 💬 카카오 ID: SumeeKim</div>
+  </div>
+</div>
 
 <button class="to-top" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
 
