@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>모모마인드랩 독서모임 | 멈춤: 생각의 깊이를 더하는 시간</title>
-<meta name="description" content="모모마인드랩 오프라인 독서모임 9-10월 — 멈춤: 생각의 깊이를 더하는 시간. 사고외주, 문해력 격차, 고요한 읽기 3권과 함께합니다.">
+<title>모모마인드랩 독서모임 | 모순과 역설을 넘어</title>
+<meta name="description" content="모모마인드랩 오프라인 독서모임 11-12월 — 모순과 역설을 넘어. 목요일이었던 남자, 어려운 시절, 주홍글자 3권과 함께합니다.">
 <style>
 :root{
   --espresso:#45362e; --espresso-2:#5c4a3f; --espresso-3:#332922;
@@ -40,8 +40,8 @@ a{color:inherit}
 .btn-espresso{background:var(--espresso);color:#fff}
 /* ---- hero: espresso band ---- */
 .hero{background:var(--espresso);color:#fff;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:72px 0}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;padding:52px 0}}
+.hero-grid{display:grid;grid-template-columns:1fr;padding:72px 0 0}
+@media(max-width:900px){.hero-grid{padding:52px 0 0}}
 .hero-kicker{font-size:12px;letter-spacing:3px;color:var(--sage-soft);margin:0 0 12px;font-weight:700}
 .hero h1{font-size:clamp(34px,5.4vw,60px);line-height:1.22;font-weight:800;letter-spacing:-1.5px;margin:0 0 14px}
 .hero h1 span{color:var(--sage-soft)}
@@ -50,9 +50,12 @@ a{color:inherit}
 .checks li{font-size:14.5px;font-weight:600}
 .checks li::before{content:"✓";color:var(--sage-soft);font-weight:800;margin-right:9px}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.hero-photo{border-radius:18px;overflow:hidden;border:6px solid rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(0,0,0,.35)}
-.hero-photo img{width:100%;aspect-ratio:4/3.1;object-fit:cover}
-.hero-cap{font-size:12px;color:rgba(255,255,255,.65);text-align:center;margin-top:10px;letter-spacing:1px}
+.video-shell{max-width:880px;margin:30px auto 0}
+.hero-video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:18px;border:6px solid rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(0,0,0,.35);background:#000}
+.hero-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+#ytPlayer{position:absolute;top:0;left:0;width:100%;height:100%}
+.video-link{text-align:center;margin:12px 0 64px;font-size:13px}
+.video-link a{color:rgba(255,255,255,.7)}
 /* ---- sage band ---- */
 .band{background:var(--sage);color:#fff;text-align:center}
 .band .wrap{padding-top:64px;padding-bottom:64px;max-width:760px}
@@ -200,12 +203,12 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
 <div class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <p class="hero-kicker">MOMO MIND LAB · OFFLINE READING CLUB · 2026.9–10</p>
-      <h1>멈춤: 생각의 깊이를 <span>더하는 시간</span></h1>
-      <p class="sub">2024년 11월부터 함께 읽고, 말하고, 들으며 생각하는 기쁨을 일상으로 만들어 온 모임. 이번 시즌엔 AI 시대의 생각, 문해력, 고요한 읽기를 다룹니다.</p>
+      <p class="hero-kicker">MOMO MIND LAB · OFFLINE READING CLUB · 2026.11–12</p>
+      <h1>모순과 역설을 <span>넘어</span></h1>
+      <p class="sub">2024년 11월부터 함께 읽고, 말하고, 들으며 생각하는 기쁨을 일상으로 만들어 온 모임. 이번 시즌엔 체스터턴, 디킨스, 호손의 고전 세 권과 함께 모순과 역설을 넘어서는 시간을 갖습니다.</p>
       <ul class="checks">
-        <li>오전팀 · 목 11:00 — 9/10 · 10/1 · 10/15 (총 3회)</li>
-        <li>오후팀 · 목 15:00 — 9/17 · 10/8 · 10/22 (총 3회)</li>
+        <li>오전팀 · 목 11:00 — 11/5 · 11/19 · 12/3 (총 3회)</li>
+        <li>오후팀 · 목 15:00 — 11/12 · 11/26 · 12/10 (총 3회)</li>
         <li>의왕 인덕원 · 의왕 더 클래식에서 만납니다</li>
       </ul>
       <div class="hero-btns">
@@ -213,17 +216,21 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
         <a class="btn btn-line" href="#books">3권의 책 보기</a>
       </div>
     </div>
-    <div>
-      <div class="hero-photo"><img src="assets/hero.jpg" alt="멈춤 콘셉트 이미지"></div>
-      <p class="hero-cap">STOP — 더 깊이 가기 위한 시간</p>
+  </div>
+  <div class="wrap">
+    <div class="video-shell">
+      <div class="hero-video" id="heroVideo">
+        <div id="ytPlayer"></div>
+      </div>
     </div>
+    <p class="video-link"><a href="https://www.youtube.com/watch?v=hD4r2C1yBIg" target="_blank" rel="noopener">YouTube에서 보기 ↗</a></p>
   </div>
 </div>
 
 <div class="band">
   <div class="wrap reveal">
-    <h2>Beyond Hurry.</h2>
-    <p>“멈춤은 뒤처짐이 아니라, 더 깊이 가기 위한 시간입니다.” 세 번의 목요일, 세 권의 책과 함께 생각을 쉬게 하고 깊이를 더하세요.</p>
+    <h2>Beyond Paradox.</h2>
+    <p>세 번의 목요일, 세 권의 고전과 함께 모순과 역설을 넘어서는 시간. &lt;목요일이었던 남자&gt; · &lt;어려운 시절&gt; · &lt;주홍글자&gt;와 함께합니다.</p>
     <a class="btn btn-dark" href="#apply">이 시즌 함께하기</a>
   </div>
 </div>
@@ -232,41 +239,41 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
   <section id="books">
     <div class="wrap">
       <div class="sec-head center reveal">
-        <p class="kicker">VOL. 06 — 2026.9–10</p>
+        <p class="kicker">VOL. 07 — 2026.11–12</p>
         <h2 class="sec-title">읽을 책 및 소개</h2>
-        <p class="sec-sub">빠르게 훑는 읽기가 아니라, 멈춰서 깊이 읽는 시간입니다.</p>
+        <p class="sec-sub">고전을 천천히, 모순과 역설을 넘어서는 시간입니다.</p>
       </div>
       <div class="trio">
         <article class="book reveal">
-          <img src="assets/book-sago.jpg" alt="사고외주 책 표지">
+          <img src="assets/book-thursday.jpg" alt="목요일이었던 남자 책 표지">
           <div class="book-body">
             <span class="week">☞ 1주차</span>
-            <h3>&lt;사고외주&gt;</h3>
-            <div class="author">홍진기 · 생각하지 않는 인간의 출현</div>
-            <p class="desc">똑똑한 무능함, AI시대 조용하고 위험한 변화</p>
-            <p class="long">“우리는 지금 ‘똑똑한 무능함’에 빠져 있다.” 연세대 홍진기 교수가 묻습니다. AI에게 생각을 외주 맡긴 시대, 우리의 판단과 사유는 어디로 가는가. 시즌의 문을 여는 문제작입니다.</p>
+            <h3>&lt;목요일이었던 남자&gt;</h3>
+            <div class="author">G. K. 체스터턴 · 선과 악</div>
+            <p class="desc">역설의 거장 체스터턴, 그가 미스터리를 쓴 진짜 이유</p>
+            <p class="long">질서와 도덕을 수호하는 시인이자 비밀 요원 가브리엘 사임. 무정부주의 비밀결사대에 ‘목요일’로 침투한 그가 막으려는 폭탄 테러, 그리고 충격적인 진실. 선과 악의 얼굴을 묻는 역설의 걸작입니다.</p>
             <a class="more" href="#schedule">이 일정으로 읽기 »</a>
           </div>
         </article>
         <article class="book reveal">
-          <img src="assets/book-munhae.jpg" alt="문해력 격차 책 표지">
+          <img src="assets/book-hardtimes.jpg" alt="어려운 시절 책 표지">
           <div class="book-body">
             <span class="week">☞ 2주차</span>
-            <h3>&lt;문해력 격차&gt;</h3>
-            <div class="author">김지원 · 민정홍 (EBS PD)</div>
-            <p class="desc">EBS PD가 파헤친 문해력 격차. 왜 누구는 읽고, 누구는 읽지 못하는가</p>
-            <p class="long">읽기 힘든 아이는 어떻게 읽기 못하는 어른이 되는가. 7년의 취재와 현장 프로젝트, 수백 권의 논문으로 파헤친 ‘읽기의 격차’와 그 해법. 우리 모두의 이야기입니다.</p>
+            <h3>&lt;어려운 시절&gt;</h3>
+            <div class="author">찰스 디킨스 · 씨 뿌리기, 수확하기, 저장하기</div>
+            <p class="desc">21세기 인간과 시스템, 150년 전 찰스 디킨스의 눈으로 보다</p>
+            <p class="long">사실과 수치만을 믿는 공리주의 교육자 그래드그라인드가 뿌린 씨앗은 어떤 수확으로 돌아오는가. 감정과 상상을 지우려는 시스템에 대한 디킨스의 묵직한 질문입니다.</p>
             <a class="more" href="#schedule">이 일정으로 읽기 »</a>
           </div>
         </article>
         <article class="book reveal">
-          <img src="assets/book-goyo.jpg" alt="고요한 읽기 책 표지">
+          <img src="assets/book-scarlet.jpg" alt="주홍글자 책 표지">
           <div class="book-body">
             <span class="week">☞ 3주차</span>
-            <h3>&lt;고요한 읽기&gt;</h3>
-            <div class="author">이승우 · 읽기-쓰기-살기의 초상</div>
-            <p class="desc">고요히 읽는다는 것, 자기침잠과 사유의 힘</p>
-            <p class="long">“그 때 우리 안에서 일어나는 일이 바로 ‘흩어져 있는 것을 한데 모으기’, 즉 생각하기다.” 읽기-쓰기-살기가 빚어낸 작가의 초상. 시즌을 가장 깊이 있게 닫는 책입니다.</p>
+            <h3>&lt;주홍글자&gt;</h3>
+            <div class="author">너새니얼 호손 · 낙인의 역설</div>
+            <p class="desc">인간의 도덕적 고독, 낙인의 역설과 승화</p>
+            <p class="long">주홍 글자 ‘A’를 가슴에 달고 살아가는 헤스터 프린, 죄의식에 시들어가는 딤스데일, 복수에 사로잡힌 칠링워스. 낙인이 승화로 바뀌는 과정을 그린 미국 문학의 고전입니다.</p>
             <a class="more" href="#schedule">이 일정으로 읽기 »</a>
           </div>
         </article>
@@ -279,26 +286,26 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
       <div class="sec-head reveal">
         <p class="kicker">THU × 3 — PICK YOUR TEAM</p>
         <h2 class="sec-title">일정 안내 및 장소</h2>
-        <p class="sec-sub">2026년 9–10월, 지정된 목요일 3회 · 오전 / 오후 중 선택. 두 팀 내용은 동일합니다.</p>
+        <p class="sec-sub">2026년 11–12월, 지정된 목요일 3회 · 오전 / 오후 중 선택. 두 팀 내용은 동일합니다.</p>
       </div>
       <div class="sched">
         <div class="team reveal">
-          <div class="team-top"><h3>☀️ 오전팀 (목요일 오전 11시)</h3><p>총 3회 · 9/10, 10/1, 10/15</p></div>
+          <div class="team-top"><h3>☀️ 오전팀 (목요일 오전 11시)</h3><p>총 3회 · 11/5, 11/19, 12/3</p></div>
           <div class="team-body">
             <ul>
-              <li><b>1회</b> 9/10 (목) 11:00 — &lt;사고외주&gt;</li>
-              <li><b>2회</b> 10/1 (목) 11:00 — &lt;문해력 격차&gt;</li>
-              <li><b>3회</b> 10/15 (목) 11:00 — &lt;고요한 읽기&gt;</li>
+              <li><b>1회</b> 11/5 (목) 11:00 — &lt;목요일이었던 남자&gt;</li>
+              <li><b>2회</b> 11/19 (목) 11:00 — &lt;어려운 시절&gt;</li>
+              <li><b>3회</b> 12/3 (목) 11:00 — &lt;주홍글자&gt;</li>
             </ul>
           </div>
         </div>
         <div class="team reveal">
-          <div class="team-top sage"><h3>🌙 오후팀 (목요일 오후 3시)</h3><p>총 3회 · 9/17, 10/8, 10/22</p></div>
+          <div class="team-top sage"><h3>🌙 오후팀 (목요일 오후 3시)</h3><p>총 3회 · 11/12, 11/26, 12/10</p></div>
           <div class="team-body">
             <ul>
-              <li><b>1회</b> 9/17 (목) 15:00 — &lt;사고외주&gt;</li>
-              <li><b>2회</b> 10/8 (목) 15:00 — &lt;문해력 격차&gt;</li>
-              <li><b>3회</b> 10/22 (목) 15:00 — &lt;고요한 읽기&gt;</li>
+              <li><b>1회</b> 11/12 (목) 15:00 — &lt;목요일이었던 남자&gt;</li>
+              <li><b>2회</b> 11/26 (목) 15:00 — &lt;어려운 시절&gt;</li>
+              <li><b>3회</b> 12/10 (목) 15:00 — &lt;주홍글자&gt;</li>
             </ul>
           </div>
         </div>
@@ -317,14 +324,14 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
   <section id="about" style="padding-top:0">
     <div class="wrap feature">
       <figure class="reveal" id="poster" style="margin:0">
-        <img src="poster.jpg" alt="9-10월 독서모임 안내 포스터">
-        <figcaption class="note" style="text-align:center;margin-top:10px">▲ 실제 배포용 포스터 (poster.jpg)</figcaption>
+        <img src="11-12 poster.jpg" alt="11-12월 독서모임 안내 포스터">
+        <figcaption class="note" style="text-align:center;margin-top:10px">▲ 실제 배포용 포스터 (11-12 poster.jpg)</figcaption>
       </figure>
       <div class="reveal">
         <p class="meta">모모마인드랩 · SINCE NOV 2024</p>
         <h2 class="serif" style="font-family:var(--serif)">모모마인드랩 독서모임 소개</h2>
         <p class="lead">모모마인드랩 독서모임은 2024년 11월부터 설레는 마음으로 함께 책을 읽고, 말하고 들으며 생각하는 기쁨이 일상이 되기를 꿈꾸는 모임입니다.</p>
-        <p>소설에서 나를 찾고, 죽음·고통·가족·일상의 주제를 지나 ‘멈춤’에 도착했습니다. 혼자라면 덮었을 책도 함께라면 끝까지 읽게 됩니다. 발제와 대화, 여운이 남는 2시간을 경험해 보세요.</p>
+        <p>소설에서 나를 찾고, 죽음·고통·가족·일상의 주제를 지나 ‘멈춤’을 거쳐 이제 ‘모순과 역설을 넘어’에 도착했습니다. 혼자라면 덮었을 책도 함께라면 끝까지 읽게 됩니다. 발제와 대화, 여운이 남는 2시간을 경험해 보세요.</p>
         <div class="stats">
           <div><b>12</b><span>주제 (2024.11–2026.10)</span></div>
           <div><b>38</b><span>함께 읽은 책</span></div>
@@ -370,7 +377,7 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
       </div>
       <div class="hist-tabs reveal">
         <button class="active" data-tab="s1">시즌 I (2024.11–2025.10 · 23권)</button>
-        <button data-tab="s2">시즌 II (2025.11–2026.10 · 15권)</button>
+        <button data-tab="s2">시즌 II (2025.11–2026.12 · 18권)</button>
       </div>
       <div class="timeline reveal" id="tab-s1">
         <div class="phase"><span class="step">01 · 11월</span><div><h4>나를 알아차리다</h4><ul><li>돈: &lt;부자의 그릇&gt; · 시간: &lt;모모&gt; · 관계: &lt;나를 잃지 않고 오늘을 사는 법&gt;</li></ul></div></div>
@@ -386,7 +393,8 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
         <div class="phase"><span class="step">03 · 3–4월</span><div><h4>우리는 왜 고통을 겪는가</h4><ul><li>&lt;고통의 문제&gt;</li></ul></div></div>
         <div class="phase"><span class="step">04 · 5–6월</span><div><h4>샌드위치 세대의 숨고르기 — 내 인생의 오후를 위한 여정</h4><ul><li>&lt;한낮의 시선&gt; · &lt;가족이지만 타인입니다&gt; · &lt;내가 죽어 누워있을 때&gt; · &lt;별 것 아닌 것 같지만 도움이 되는&gt;</li></ul></div></div>
         <div class="phase"><span class="step">05 · 7–8월</span><div><h4>사는 게 내 맘 같지 않을 때</h4><ul><li>&lt;체호프 단편선&gt;</li></ul></div></div>
-        <div class="phase"><span class="step">06 · 9–10월</span><div><h4>멈춤 _ 생각의 깊이를 더하는 시간 <span class="now">★ 이번 시즌</span></h4><ul><li>&lt;사고외주&gt; · &lt;문해력 격차&gt; · &lt;고요한 읽기&gt;</li></ul></div></div>
+        <div class="phase"><span class="step">06 · 9–10월</span><div><h4>멈춤 _ 생각의 깊이를 더하는 시간</h4><ul><li>&lt;사고외주&gt; · &lt;문해력 격차&gt; · &lt;고요한 읽기&gt;</li></ul></div></div>
+        <div class="phase"><span class="step">07 · 11–12월</span><div><h4>모순과 역설을 넘어 <span class="now">★ 이번 시즌</span></h4><ul><li>&lt;목요일이었던 남자&gt; · &lt;어려운 시절&gt; · &lt;주홍글자&gt;</li></ul></div></div>
       </div>
     </div>
   </section>
@@ -403,8 +411,8 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
         <input id="f-contact" required placeholder="예: 010-0000-0000">
         <label>희망 팀 *</label>
         <div class="checks">
-          <label><input type="radio" name="team" value="오전팀 (목 11:00 · 9/10, 10/1, 10/15)" checked> 오전팀</label>
-          <label><input type="radio" name="team" value="오후팀 (목 15:00 · 9/17, 10/8, 10/22)"> 오후팀</label>
+          <label><input type="radio" name="team" value="오전팀 (목 11:00 · 11/5, 11/19, 12/3)" checked> 오전팀</label>
+          <label><input type="radio" name="team" value="오후팀 (목 15:00 · 11/12, 11/26, 12/10)"> 오후팀</label>
         </div>
         <label for="f-msg">남기실 말씀</label>
         <textarea id="f-msg" rows="4" placeholder="처음 참여하시나요? 궁금한 점을 적어주세요."></textarea>
@@ -431,7 +439,7 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
           </ol>
         </div>
       </div>
-      <p class="sayline">“멈춤은 뒤처짐이 아니라, 더 깊이 가기 위한 시간입니다.” 지금, 목요일 오전/오후 한 자리를 잡아보세요.</p>
+      <p class="sayline">“모순과 역설을 넘어, 더 깊이 읽는 시간입니다.” 지금, 목요일 오전/오후 한 자리를 잡아보세요.</p>
     </div>
   </div>
 </main>
@@ -440,7 +448,7 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
   <div class="wrap foot-grid">
     <div>
       <div class="wordmark">모모마인드랩 📚</div>
-      <p>멈춤: 생각의 깊이를 더하는 시간 (2026.9–10)<br>함께 읽고, 말하고, 들으며 생각하는 기쁨이 일상이 되는 모임</p>
+      <p>모순과 역설을 넘어 (2026.11–12)<br>함께 읽고, 말하고, 들으며 생각하는 기쁨이 일상이 되는 모임</p>
     </div>
     <div>
       <h4>MENU</h4>
@@ -461,6 +469,14 @@ footer{background:var(--espresso-3);color:#fff;padding:54px 0 44px}
 <button class="to-top" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로">↑</button>
 
 <script>
+// YouTube IFrame Player API (official player script instead of raw iframe)
+var ytTag=document.createElement('script');
+ytTag.src='https://www.youtube.com/iframe_api';
+document.head.appendChild(ytTag);
+var ytPlayer=null;
+function onYouTubeIframeAPIReady(){
+  ytPlayer=new YT.Player('ytPlayer',{width:'100%',height:'100%',videoId:'hD4r2C1yBIg',playerVars:{rel:0}});
+}
 // tabs
 document.querySelectorAll('.hist-tabs button').forEach(b=>{
   b.addEventListener('click',()=>{
@@ -481,7 +497,7 @@ document.getElementById('btnCopy').addEventListener('click',async()=>{
   const msg=document.getElementById('f-msg').value.trim();
   const out=document.getElementById('formMsg');
   if(!name||!contact){out.textContent='이름과 연락처를 입력해 주세요.';return;}
-  const text='[모모마인드랩 9-10월 독서모임 신청]\n이름: '+name+'\n연락처: '+contact+'\n희망팀: '+team+'\n남기실 말씀: '+(msg||'-')+'\n주제: 멈춤 - 생각의 깊이를 더하는 시간';
+  const text='[모모마인드랩 11-12월 독서모임 신청]\n이름: '+name+'\n연락처: '+contact+'\n희망팀: '+team+'\n남기실 말씀: '+(msg||'-')+'\n주제: 모순과 역설을 넘어';
   try{await navigator.clipboard.writeText(text);out.textContent='복사되었습니다. 운영자에게 붙여넣어 전송해 주세요.';}
   catch(e){out.textContent=text;}
 });
